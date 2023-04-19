@@ -1,4 +1,13 @@
+// Modules Import
 import express from "express";
+import { resolve } from "path";
+import dotenv from "dotenv";
+
+// Relative Imports
+
+dotenv.config({
+  path: resolve(__dirname, "../.env"),
+});
 
 const app = express();
 
