@@ -6,7 +6,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 // Relative Imports
 import { connectDB } from "./config/db";
-import { userRoutes } from "./routes/userRouter";
+import { userRoutes } from "./routes/userRoutes";
+import { chatRoutes } from "./routes/chatRoutes";
 
 dotenv.config({
   path: resolve(__dirname, "../.env"),
@@ -19,13 +20,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  const { name } = req.body;
-  console.log("Name", name);
-  res.send({ data: name });
+  res.send({ data: "Hello" });
 });
 
 app.use("/api/user", userRoutes);
-
+app.use("/api/chat", chatRoutes);
 app.listen(4000, () => {
   console.log("Server Running on port 4000");
 });
