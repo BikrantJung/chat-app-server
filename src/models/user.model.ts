@@ -5,7 +5,7 @@ interface IUser {
   username: string;
   email: string;
   password: string;
-  profile_picture?: string;
+  profilePicture?: string;
 }
 
 const userSchema = new mongoose.Schema(
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    profile_picture: {
+    profilePicture: {
       type: String,
       default:
         "https://icon-library.com/images/anonymous-icon/anonymous-icon-0.jpg",

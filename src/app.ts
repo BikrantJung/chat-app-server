@@ -2,10 +2,11 @@
 import express from "express";
 import { resolve } from "path";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
+import cors from "cors";
+// Relative Imports
 import { connectDB } from "./config/db";
 import { userRoutes } from "./routes/userRouter";
-import bodyParser from "body-parser";
-// Relative Imports
 
 dotenv.config({
   path: resolve(__dirname, "../.env"),
@@ -13,6 +14,7 @@ dotenv.config({
 connectDB();
 
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

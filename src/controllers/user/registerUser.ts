@@ -4,7 +4,7 @@ import { generateTokens } from "../../utils/generateTokens";
 
 export const registerUser = async (req: Request, res: Response) => {
   console.log("Request object", req.body);
-  const { username, email, password } = req.body;
+  const { username, email, password, profile_picture } = req.body;
 
   try {
     const userExists = await User.findOne({ email });
@@ -15,6 +15,7 @@ export const registerUser = async (req: Request, res: Response) => {
       username,
       email,
       password,
+      profile_picture,
     });
 
     const jwt_token = generateTokens(user._id);
