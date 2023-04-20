@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 export const loginUser = async (req: Request, res: Response) => {
   console.log("Request object", req.body);
   const { email, password } = req.body;
-
+  console.log("Email:", email);
   try {
     const user = await User.findOne({ email });
 
@@ -17,6 +17,6 @@ export const loginUser = async (req: Request, res: Response) => {
     const jwt_token = generateTokens(user._id);
     res.send({ ...user.toObject(), password: "", jwt_token });
   } catch (error: any) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ message: error.message });
   }
 };

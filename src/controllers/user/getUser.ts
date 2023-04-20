@@ -10,6 +10,7 @@ import { CustomRequest } from "../../types/request.type";
  */
 
 export const getUser = async (req: CustomRequest, res: Response) => {
+  console.log(req.user);
   const query = req.query.search
     ? {
         $or: [
@@ -19,6 +20,6 @@ export const getUser = async (req: CustomRequest, res: Response) => {
       }
     : {};
 
-  const users = await User.find(query);
+  const users = await User.find(query).find({ _id: { $ne: req.user?._id } });
   res.status(200).json(users);
 };
