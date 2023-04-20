@@ -13,3 +13,7 @@ export const renameGroupSchema = Joi.object({
   chatName: Joi.string().required(),
   chatId: Joi.string().required(),
 });
+export const joinGroupSchema = Joi.object({
+  chatId: Joi.string().required(),
+  users: Joi.array().required().items(Joi.string().required()).min(1),
+});
