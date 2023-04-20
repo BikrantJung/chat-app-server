@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { CustomRequest } from "../../types/request.type";
-import { accessChatSchema } from "./dto/accessChat.dto";
+import { accessChatSchema } from "./dto/chat.dto";
 import { Chat } from "../../models/chat.model";
 import { User } from "../../models/user.model";
 

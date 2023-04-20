@@ -1,6 +1,6 @@
 import { Response } from "express";
 import { CustomRequest } from "../../types/request.type";
-import { createGroupChatSchema } from "./dto/creatGroupChat.dto";
+import { createGroupChatSchema } from "./dto/chat.dto";
 import { Chat } from "../../models/chat.model";
 
 export const createGroupChat = async (req: CustomRequest, res: Response) => {
